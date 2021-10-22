@@ -7,6 +7,10 @@ public class FlightWritable {
         this.destinationAirportID = destinationAirportID;
     }
 
+    public int getDestinationAirportID() {
+        return destinationAirportID;
+    }
+
     public static FlightWritable read(String input) {
         String[] fields = input.split(",");
         int destinationAirportID = Integer.parseInt(fields[14]);
