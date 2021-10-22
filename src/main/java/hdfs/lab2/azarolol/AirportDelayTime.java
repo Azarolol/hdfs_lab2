@@ -11,7 +11,7 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 public class AirportDelayTime {
     public static void main(String[] args) throws Exception {
         if (args.length != 3) {
-            System.err.println("Usage: AirportDelayTime <input path1> <input path2> <output path>");
+            System.err.println("Usage: AirportDelayTime <flights path> <airports path> <output path>");
             System.exit(-1);
         }
         Job job = Job.getInstance();
