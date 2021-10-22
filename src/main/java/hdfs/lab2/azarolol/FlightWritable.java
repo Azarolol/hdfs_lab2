@@ -22,7 +22,10 @@ public class FlightWritable {
     public static FlightWritable read(String input) {
         String[] fields = input.split(",");
         IntWritable destinationAirportID = new IntWritable(Integer.parseInt(fields[14]));
-        IntWritable delayTime = new IntWritable(Integer.parseInt(fields[18]));
+        try {
+            IntWritable delayTime = new IntWritable(Integer.parseInt(fields[18]));
+        } catch ()
+
         return new FlightWritable(destinationAirportID, delayTime);
     }
 }
