@@ -8,7 +8,7 @@ public class AirportGroupingComparator extends WritableComparator {
     public int compare(WritableComparable a, WritableComparable b) {
         AirportWritableComparable airportWritableComparable1 = (AirportWritableComparable) a;
         AirportWritableComparable airportWritableComparable2 = (AirportWritableComparable) b;
-        
+        return airportWritableComparable1.getID().compareTo(airportWritableComparable2.getID());
     }
 
 }
