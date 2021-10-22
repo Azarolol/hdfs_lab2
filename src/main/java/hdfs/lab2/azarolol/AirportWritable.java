@@ -9,7 +9,15 @@ public class AirportWritable {
         this.name = name;
     }
 
-    public AirportWritable read(String input) {
+    public String getName() {
+        return name;
+    }
+
+    public int getID() {
+        return ID;
+    }
+
+    public static AirportWritable read(String input) {
         String[] fields = input.split(",");
         int ID = Integer.parseInt(fields[0]);
         String name = fields[1];
