@@ -21,12 +21,13 @@ public class AirportReducer extends Reducer<AirportWritableComparable, Text, Tex
         int delayNumber = 1;
         while (iter.hasNext()) {
             String next = iter.next().toString();
-            if next.matches()
-            delay = Float.parseFloat(iter.next().toString());
-            maxDelay = Math.max(maxDelay, delay);
-            minDelay = Math.min(minDelay, delay);
-            totalDelay += delay;
-            delayNumber++;
+            if (next.matches("^\\d+\\.\\d+$")) {
+                delay = Float.parseFloat(iter.next().toString());
+                maxDelay = Math.max(maxDelay, delay);
+                minDelay = Math.min(minDelay, delay);
+                totalDelay += delay;
+                delayNumber++;
+            }
         }
         float averageDelay = totalDelay / delayNumber;
         context.write(name, new Text(String.format("Minimal delay = %f, Average delay = %f, Maximal delay = %f", minDelay, averageDelay, maxDelay)));
