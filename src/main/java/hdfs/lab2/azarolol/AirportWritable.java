@@ -1,7 +1,6 @@
 package hdfs.lab2.azarolol;
 
 import org.apache.hadoop.io.IntWritable;
-import org.apache.hadoop.yarn.webapp.hamlet.Hamlet;
 
 import java.util.Objects;
 
