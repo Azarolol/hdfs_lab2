@@ -1,10 +1,16 @@
 package hdfs.lab2.azarolol;
 
-import 
+import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
+import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
 public class AirportDelayTime {
     public static void main(String[] args) {
+        if (args.length != 3) {
+            System.err.println("Usage: AirportDelayTime <input")
+        }
         Job job = Job.getInstance();
         job.setJarByClass(JoinJob.class);
         job.setJobName("AirportDelayTime counter");
