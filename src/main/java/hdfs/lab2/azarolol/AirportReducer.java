@@ -27,6 +27,6 @@ public class AirportReducer extends Reducer<AirportWritableComparable, Text, Tex
             delayNumber++;
         }
         float averageDelay = totalDelay / delayNumber;
-        context.write(name, new Text());
+        context.write(name, new Text(String.format("Minimal delay = %f, Average delay = %f, Maximal delay = %f", minDelay, averageDelay, maxDelay)));
     }
 }
