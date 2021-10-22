@@ -7,5 +7,5 @@ public class FlightWritable {
         this.destinationAirportID = destinationAirportID;
     }
 
-    
+    public static FlightWritable 
 }
