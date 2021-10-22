@@ -20,6 +20,8 @@ public class AirportReducer extends Reducer<AirportWritableComparable, Text, Tex
         float totalDelay = delay;
         int delayNumber = 1;
         while (iter.hasNext()) {
+            String next = iter.next().toString();
+            if next.matches()
             delay = Float.parseFloat(iter.next().toString());
             maxDelay = Math.max(maxDelay, delay);
             minDelay = Math.min(minDelay, delay);
