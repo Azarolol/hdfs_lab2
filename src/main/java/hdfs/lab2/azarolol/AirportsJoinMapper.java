@@ -11,6 +11,6 @@ public class AirportsJoinMapper extends Mapper<LongWritable, Text, AirportWritab
     @Override
     protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
         AirportWritable mappingAirport = AirportWritable.read(value.toString().replaceAll("\"", ""));
-        context.write(new AirportWritableComparable(mappingAirport.getID(), new IntWritable(0)), new Text(String.valueOf(mappingFlight.getDelayTime())));
+        context.write(new AirportWritableComparable(mappingAirport.getID(), new IntWritable(0)), new Text(mappingAirport.getName()));
     }
 }
