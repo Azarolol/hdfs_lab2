@@ -1,19 +1,21 @@
 package hdfs.lab2.azarolol;
 
-public class FlightWritable {
-    private final int destinationAirportID;
-    private final int delayTime;
+import org.apache.hadoop.io.IntWritable;
 
-    public FlightWritable(int destinationAirportID, int delayTime) {
+public class FlightWritable {
+    private final IntWritable destinationAirportID;
+    private final IntWritable delayTime;
+
+    public FlightWritable(IntWritable destinationAirportID, IntWritable delayTime) {
         this.destinationAirportID = destinationAirportID;
         this.delayTime = delayTime;
     }
 
-    public int getDelayTime() {
+    public IntWritable getDelayTime() {
         return delayTime;
     }
 
-    public int getDestinationAirportID() {
+    public IntWritable getDestinationAirportID() {
         return destinationAirportID;
     }
 

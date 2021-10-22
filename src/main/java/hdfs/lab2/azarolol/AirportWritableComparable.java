@@ -9,17 +9,17 @@ import java.io.IOException;
 
 public class AirportWritableComparable implements WritableComparable<AirportWritableComparable> {
     private final IntWritable ID;
-    private final boolean indicator;
+    private final IntWritable indicator;
 
     public IntWritable getID() {
         return ID;
     }
 
-    public boolean getIndicator() {
+    public IntWritable getIndicator() {
         return indicator;
     }
 
-    public AirportWritableComparable(IntWritable ID, boolean indicator) {
+    public AirportWritableComparable(IntWritable ID, IntWritable indicator) {
         this.ID = ID;
         this.indicator = indicator;
     }
@@ -31,11 +31,13 @@ public class AirportWritableComparable implements WritableComparable<AirportWrit
 
     @Override
     public void write(DataOutput dataOutput) throws IOException {
-
+        ID.write(dataOutput);
+        indicator.write(dataOutput);
     }
 
     @Override
     public void readFields(DataInput dataInput) throws IOException {
-
+        ID.readFields(dataInput);
+        indicator.readFields(dataInput);
     }
 }
