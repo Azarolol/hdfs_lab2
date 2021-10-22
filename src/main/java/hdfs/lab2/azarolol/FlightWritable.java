@@ -1,7 +1,11 @@
 package hdfs.lab2.azarolol;
 
 public class FlightWritable {
-    private final String destinationAirportID;
+    private final int destinationAirportID;
 
-    public FlightWritable()
+    public FlightWritable(int destinationAirportID) {
+        this.destinationAirportID = destinationAirportID;
+    }
+
+    
 }
