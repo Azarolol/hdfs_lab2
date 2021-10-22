@@ -1,0 +1,9 @@
+/home/azamat/hdfs_lab2/src/main/java/hdfs/lab2/azarolol/AirportDelayTime.java
+/home/azamat/hdfs_lab2/src/main/java/hdfs/lab2/azarolol/AirportWritable.java
+/home/azamat/hdfs_lab2/src/main/java/hdfs/lab2/azarolol/AirportPartitioner.java
+/home/azamat/hdfs_lab2/src/main/java/hdfs/lab2/azarolol/AirportGroupingComparator.java
+/home/azamat/hdfs_lab2/src/main/java/hdfs/lab2/azarolol/FlightWritable.java
+/home/azamat/hdfs_lab2/src/main/java/hdfs/lab2/azarolol/AirportWritableComparable.java
+/home/azamat/hdfs_lab2/src/main/java/hdfs/lab2/azarolol/AirportsJoinMapper.java
+/home/azamat/hdfs_lab2/src/main/java/hdfs/lab2/azarolol/FlightsJoinMapper.java
+/home/azamat/hdfs_lab2/src/main/java/hdfs/lab2/azarolol/AirportReducer.java
