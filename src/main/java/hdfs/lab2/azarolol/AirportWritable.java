@@ -4,7 +4,7 @@ public class AirportWritable {
     private final String name;
     private final int ID;
 
-    public Airport(String name, int ID) {
+    public AirportWritable(String name, int ID) {
         this.ID = ID;
         this.name = name;
     }
@@ -12,6 +12,7 @@ public class AirportWritable {
     public read(String input) {
         String[] fields = input.split(",");
         int ID = Integer.parseInt(fields[0]);
-        String name = 
+        String name = fields([1]);
+        return new AirportWritable(name, ID);
     }
 }
