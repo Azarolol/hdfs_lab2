@@ -10,5 +10,4 @@ public class AirportGroupingComparator extends WritableComparator {
         AirportWritableComparable airportWritableComparable2 = (AirportWritableComparable) b;
         return airportWritableComparable1.getID().compareTo(airportWritableComparable2.getID());
     }
-
 }
