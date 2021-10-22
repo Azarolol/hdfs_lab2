@@ -20,11 +20,14 @@ public class FlightWritable {
     }
 
     public static FlightWritable read(String input) {
+        IntWritable delayTime;
         String[] fields = input.split(",");
         IntWritable destinationAirportID = new IntWritable(Integer.parseInt(fields[14]));
         try {
-            IntWritable delayTime = new IntWritable(Integer.parseInt(fields[18]));
-        } catch ()
+            delayTime = new IntWritable(Integer.parseInt(fields[18]));
+        } catch (NumberFormatException n) {
+            delayTime = new IntWritable(0);
+        }
 
         return new FlightWritable(destinationAirportID, delayTime);
     }
