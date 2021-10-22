@@ -24,7 +24,7 @@ public class AirportDelayTime {
         job.setPartitionerClass(AirportPartitioner.class);
         job.setGroupingComparatorClass(AirportGroupingComparator.class);
         job.setReducerClass(AirportReducer.class);
-        job.setMapOutputKeyClass(Text.class);
+        job.setMapOutputKeyClass(AirportWritableComparable.class);
 
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(Text.class);
