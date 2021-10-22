@@ -7,7 +7,6 @@ import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
 
 import java.io.IOException;
-import java.util.Objects;
 
 public class FlightsJoinMapper extends Mapper<LongWritable, Text, AirportWritableComparable, Text> {
     @Override
@@ -16,7 +15,7 @@ public class FlightsJoinMapper extends Mapper<LongWritable, Text, AirportWritabl
         FlightWritable mappingFlight = FlightWritable.read(valueTrimmed);
         IntWritable ID = mappingFlight.getDestinationAirportID();
         FloatWritable delay = mappingFlight.getDelayTime();
-        if (ID.hashCode() != 0) {
+        if (ID.hashCode() != 0 && delay.hashCode() > 0) {
             context.write(new AirportWritableComparable(ID, new IntWritable(1)), new Text(String.valueOf(delay)));
         }
     }
