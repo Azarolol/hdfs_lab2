@@ -13,7 +13,7 @@ public class AirportDelayTime {
             System.exit(-1);
         }
         Job job = Job.getInstance();
-        job.setJarByClass(JoinJob.class);
+        job.setJarByClass(AirportDelayTime.class);
         job.setJobName("AirportDelayTime counter");
         MultipleInputs.addInputPath(job, new Path(args[0]), TextInputFormat.class, CallsJoinMapper.class);
         MultipleInputs.addInputPath(job, new Path(args[1]), TextInputFormat.class, SystemsJoinMapper.class);
