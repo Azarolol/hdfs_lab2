@@ -8,6 +8,7 @@ public class FlightWritable {
     }
 
     public static FlightWritable read(String input) {
-        String[] fields = 
+        String[] fields = input.split(",");
+        
     }
 }
