@@ -9,6 +9,6 @@ public class FlightWritable {
 
     public static FlightWritable read(String input) {
         String[] fields = input.split(",");
-        int destinationAirportID = Integer.parseInt
+        int destinationAirportID = Integer.parseInt(fields[])
     }
 }
