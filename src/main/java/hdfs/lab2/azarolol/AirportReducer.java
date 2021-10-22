@@ -14,22 +14,25 @@ public class AirportReducer extends Reducer<AirportWritableComparable, Text, Tex
         if (!iter.hasNext()) {
             return;
         }
-        float delay = Float.parseFloat(iter.next().toString());
-        float maxDelay = delay;
-        float minDelay = delay;
-        float totalDelay = delay;
-        int delayNumber = 1;
-        while (iter.hasNext()) {
-            String next = iter.next().toString();
-            if (next.matches("^\\d+\\.\\d+$")) {
-                delay = Float.parseFloat(next);
-                maxDelay = Math.max(maxDelay, delay);
-                minDelay = Math.min(minDelay, delay);
-                totalDelay += delay;
-                delayNumber++;
+        String first = iter.next().toString();
+        if (first.matches("^\\d+\\.\\d+$")) {
+            float delay = Float.parseFloat(first);
+            float maxDelay = delay;
+            float minDelay = delay;
+            float totalDelay = delay;
+            int delayNumber = 1;
+            while (iter.hasNext()) {
+                String next = iter.next().toString();
+                if (next.matches("^\\d+\\.\\d+$")) {
+                    delay = Float.parseFloat(next);
+                    maxDelay = Math.max(maxDelay, delay);
+                    minDelay = Math.min(minDelay, delay);
+                    totalDelay += delay;
+                    delayNumber++;
+                }
             }
+            float averageDelay = totalDelay / delayNumber;
+            context.write(name, new Text(String.format("Minimal delay = %f, Average delay = %f, Maximal delay = %f", minDelay, averageDelay, maxDelay)));
         }
-        float averageDelay = totalDelay / delayNumber;
-        context.write(name, new Text(String.format("Minimal delay = %f, Average delay = %f, Maximal delay = %f", minDelay, averageDelay, maxDelay)));
     }
 }
