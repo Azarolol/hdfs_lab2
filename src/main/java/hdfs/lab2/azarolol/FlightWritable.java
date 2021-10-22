@@ -9,6 +9,10 @@ public class FlightWritable {
         this.delayTime = delayTime;
     }
 
+    public int getDelayTime() {
+        return delayTime;
+    }
+
     public int getDestinationAirportID() {
         return destinationAirportID;
     }
