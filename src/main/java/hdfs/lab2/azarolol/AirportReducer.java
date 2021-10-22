@@ -14,6 +14,19 @@ public class AirportReducer extends Reducer<AirportWritableComparable, Text, Tex
         if (!iter.hasNext()) {
             return;
         }
-        float delay = 
+        float delay = Float.parseFloat(iter.next().toString());
+        float maxDelay = delay;
+        float minDelay = delay;
+        float totalDelay = delay;
+        int delayNumber = 1;
+        while (iter.hasNext()) {
+            delay = Float.parseFloat(iter.next().toString());
+            maxDelay = Math.max(maxDelay, delay);
+            minDelay = Math.min(minDelay, delay);
+            totalDelay += delay;
+            delayNumber++;
+        }
+        float averageDelay = totalDelay / delayNumber;
+        context.write(name, new Text());
     }
 }
