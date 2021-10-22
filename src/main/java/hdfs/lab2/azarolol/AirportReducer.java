@@ -10,8 +10,8 @@ public class AirportReducer extends Reducer<AirportWritableComparable, Text, Tex
     @Override
     protected void reduce(AirportWritableComparable key, Iterable<Text> values, Context context) throws IOException, InterruptedException {
         Iterator<Text> iter = values.iterator();
-        Text name = new Text(iter.next().toString());
-        if (!iter.hasNext() || name.equals(new Text(""))) {
+        String name = iter.next().toString();
+        if (!iter.hasNext() || name.equals("")) {
             return;
         }
         String first = iter.next().toString();
@@ -33,7 +33,7 @@ public class AirportReducer extends Reducer<AirportWritableComparable, Text, Tex
                 }
             }
             float averageDelay = totalDelay / delayNumber;
-            context.write(name, new Text(String.format("Minimal delay = %f, Average delay = %f, Maximal delay = %f", minDelay, averageDelay, maxDelay)));
+            context.write(new Text(name), new Text(String.format("Minimal delay = %f, Average delay = %f, Maximal delay = %f", minDelay, averageDelay, maxDelay)));
         }
     }
 }
