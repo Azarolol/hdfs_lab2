@@ -9,10 +9,12 @@ import org.apache.hadoop.mapreduce.Mapper;
 import java.io.IOException;
 
 public class FlightsJoinMapper extends Mapper<LongWritable, Text, AirportWritableComparable, Text> {
-    private static final String 
+    private static final String DOUBLE_QUOTES = "\"";
+    private static final String EMPTY_STRING = "";
+
     @Override
     protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
-        String valueTrimmed = value.toString().replaceAll("\"", "");
+        String valueTrimmed = value.toString().replaceAll(DOUBLE_QUOTES, EMPTY_STRING);
         FlightWritable mappingFlight = FlightWritable.read(valueTrimmed);
         IntWritable ID = mappingFlight.getDestinationAirportID();
         FloatWritable delay = mappingFlight.getDelayTime();
