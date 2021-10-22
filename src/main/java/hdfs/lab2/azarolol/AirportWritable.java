@@ -12,7 +12,7 @@ public class AirportWritable {
     public AirportWritable read(String input) {
         String[] fields = input.split(",");
         int ID = Integer.parseInt(fields[0]);
-        String name = fields([1]);
+        String name = fields[1];
         return new AirportWritable(name, ID);
     }
 }
