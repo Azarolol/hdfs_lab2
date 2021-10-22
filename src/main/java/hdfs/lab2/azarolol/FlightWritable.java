@@ -1,17 +1,18 @@
 package hdfs.lab2.azarolol;
 
+import org.apache.hadoop.io.FloatWritable;
 import org.apache.hadoop.io.IntWritable;
 
 public class FlightWritable {
     private final IntWritable destinationAirportID;
-    private final IntWritable delayTime;
+    private final FloatWritable delayTime;
 
-    public FlightWritable(IntWritable destinationAirportID, IntWritable delayTime) {
+    public FlightWritable(IntWritable destinationAirportID, FloatWritable delayTime) {
         this.destinationAirportID = destinationAirportID;
         this.delayTime = delayTime;
     }
 
-    public IntWritable getDelayTime() {
+    public FloatWritable getDelayTime() {
         return delayTime;
     }
 
@@ -20,15 +21,14 @@ public class FlightWritable {
     }
 
     public static FlightWritable read(String input) {
-        IntWritable delayTime;
+        FloatWritable delayTime;
         String[] fields = input.split(",");
-        IntWritable destinationAirportID = new IntWritable(Integer.parseInt(fields[14]));
         try {
-            delayTime = new IntWritable(Integer.parseInt(fields[18]));
+            delayTime = new FloatWritable(Float.parseFloat(fields[18]));
         } catch (NumberFormatException n) {
-            delayTime = new IntWritable(0);
+            delayTime = new FloatWritable(0);
         }
-
+        IntWritable destinationAirportID = new IntWritable(Integer.parseInt(fields[14]));
         return new FlightWritable(destinationAirportID, delayTime);
     }
 }
