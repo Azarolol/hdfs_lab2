@@ -25,7 +25,7 @@ public class AirportWritable {
     public static AirportWritable read(String input) {
         String[] fields = input.split(",");
         String airportID = fields[0];
-        if (Objects.equals(airportID, "\"DEST_AIRPORT_ID\"")) {
+        if (Objects.equals(airportID, "\"\"")) {
             return new AirportWritable("", new IntWritable(0));
         }
         IntWritable ID = new IntWritable(Integer.parseInt(fields[0]));
