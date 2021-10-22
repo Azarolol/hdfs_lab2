@@ -21,8 +21,8 @@ public class FlightWritable {
 
     public static FlightWritable read(String input) {
         String[] fields = input.split(",");
-        int destinationAirportID = Integer.parseInt(fields[14]);
-        int delayTime = Integer.parseInt(fields[18]);
+        IntWritable destinationAirportID = new IntWritable(Integer.parseInt(fields[14]));
+        IntWritable delayTime = new IntWritable(Integer.parseInt(fields[18]));
         return new FlightWritable(destinationAirportID, delayTime);
     }
 }
