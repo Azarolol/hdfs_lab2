@@ -6,6 +6,6 @@ public class FlightsJoinMapper extends Mapper<LongWritable, Text, AirportWritabl
     @Override
     protected void map(LongWritable key, Text value, Context context) {
         Flight mappingFlight = FlightWritable.read(value.toString().replaceAll("\"", ""));
-        context.write(new AirportWritableComparable(mappingFlight.getDestinationAirportID, 0), new Text());
+        context.write(new AirportWritableComparable(mappingFlight.getDestinationAirportID, 0), new Text(mappingFlight.getDelayTime));
     }
 }
