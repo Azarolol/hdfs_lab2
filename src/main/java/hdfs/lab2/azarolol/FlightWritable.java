@@ -1,5 +1,7 @@
 package hdfs.lab2.azarolol;
 
 public class FlightWritable {
-    private final 
+    private final String destinationAirportID;
+
+    
 }
