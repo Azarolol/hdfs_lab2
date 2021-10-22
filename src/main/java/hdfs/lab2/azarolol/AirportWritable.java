@@ -11,6 +11,6 @@ public class AirportWritable {
 
     public read(String input) {
         String[] fields = input.split(",");
-        int ID = Integer.parseInt
+        int ID = Integer.parseInt(fields[])
     }
 }
