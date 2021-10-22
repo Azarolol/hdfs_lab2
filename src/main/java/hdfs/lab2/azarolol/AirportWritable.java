@@ -9,5 +9,7 @@ public class AirportWritable {
         this.name = name;
     }
 
-    public read()
+    public read(String input) {
+        
+    }
 }
