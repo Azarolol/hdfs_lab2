@@ -20,7 +20,8 @@ public class AirportWritableComparable implements WritableComparable<AirportWrit
     }
 
     public AirportWritableComparable() {
-        
+        this.ID = new IntWritable(0);
+        this.indicator = new IntWritable(0);
     }
 
     public AirportWritableComparable(IntWritable ID, IntWritable indicator) {
