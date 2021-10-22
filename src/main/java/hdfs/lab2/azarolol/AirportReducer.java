@@ -7,15 +7,18 @@ import java.io.IOException;
 import java.util.Iterator;
 
 public class AirportReducer extends Reducer<AirportWritableComparable, Text, Text, Text> {
+    private static final String FLOAT_REGEX = "^\\d+\\.\\d+$";
+    private static final String EMPTY_STRING = "";
+
     @Override
     protected void reduce(AirportWritableComparable key, Iterable<Text> values, Context context) throws IOException, InterruptedException {
         Iterator<Text> iter = values.iterator();
         String name = iter.next().toString();
-        if (!iter.hasNext() || name.equals("")) {
+        if (!iter.hasNext() || name.equals(EMPTY_STRING)) {
             return;
         }
         String first = iter.next().toString();
-        if (first.matches("^\\d+\\.\\d+$")) {
+        if (first.matches(FLOAT_REGEX)) {
             float delay = Float.parseFloat(first);
             System.out.println(delay);
             float maxDelay = delay;
@@ -24,7 +27,7 @@ public class AirportReducer extends Reducer<AirportWritableComparable, Text, Tex
             int delayNumber = 1;
             while (iter.hasNext()) {
                 String next = iter.next().toString();
-                if (next.matches("^\\d+\\.\\d+$")) {
+                if (next.matches(FLOAT_REGEX)) {
                     delay = Float.parseFloat(next);
                     maxDelay = Math.max(maxDelay, delay);
                     minDelay = Math.min(minDelay, delay);

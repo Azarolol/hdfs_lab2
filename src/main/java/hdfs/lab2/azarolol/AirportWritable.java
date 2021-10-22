@@ -5,6 +5,9 @@ import org.apache.hadoop.io.IntWritable;
 import java.util.Objects;
 
 public class AirportWritable {
+    private static final String DELIMITER = ",";
+    private static final String EMPTY_STRING = "";
+
     private final String name;
     private final IntWritable ID;
 
@@ -22,10 +25,10 @@ public class AirportWritable {
     }
 
     public static AirportWritable read(String input) {
-        String[] fields = input.split(",");
+        String[] fields = input.split(DELIMITER);
         String airportID = fields[0];
         if (Objects.equals(airportID, "Code")) {
-            return new AirportWritable("", new IntWritable(0));
+            return new AirportWritable(EMPTY_STRING, new IntWritable(0));
         }
         IntWritable ID = new IntWritable(Integer.parseInt(fields[0]));
         String name = input.substring(airportID.length() + 1);
