@@ -17,6 +17,7 @@ public class AirportReducer extends Reducer<AirportWritableComparable, Text, Tex
         String first = iter.next().toString();
         if (first.matches("^\\d+\\.\\d+$")) {
             float delay = Float.parseFloat(first);
+            System.out.println(delay);
             float maxDelay = delay;
             float minDelay = delay;
             float totalDelay = delay;
