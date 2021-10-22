@@ -22,7 +22,7 @@ public class AirportReducer extends Reducer<AirportWritableComparable, Text, Tex
         while (iter.hasNext()) {
             String next = iter.next().toString();
             if (next.matches("^\\d+\\.\\d+$")) {
-                delay = Float.parseFloat(iter.next().toString());
+                delay = Float.parseFloat(next);
                 maxDelay = Math.max(maxDelay, delay);
                 minDelay = Math.min(minDelay, delay);
                 totalDelay += delay;
