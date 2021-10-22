@@ -31,7 +31,11 @@ public class AirportWritableComparable implements WritableComparable<AirportWrit
 
     @Override
     public int compareTo(AirportWritableComparable o) {
-        return this.ID.compareTo(o.getID());
+        int result = this.ID.compareTo(o.getID());
+        if (result == 0) {
+            return this.indicator.compareTo(o.getIndicator());
+        }
+        return result;
     }
 
     @Override
