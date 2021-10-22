@@ -4,5 +4,5 @@ import org.apache.mapreduce.Mapper;
 
 public class FlightsJoinMapper extends Mapper<Writable, Text, AirportWritableComparable, Text> {
     @Override
-    
+    protected void map(Writable)
 }
