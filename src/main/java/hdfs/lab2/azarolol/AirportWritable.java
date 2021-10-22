@@ -28,7 +28,7 @@ public class AirportWritable {
             return new AirportWritable("", new IntWritable(0));
         }
         IntWritable ID = new IntWritable(Integer.parseInt(fields[0]));
-        String name = input.substring(airportID.length());
+        String name = input.substring(airportID.length() + 1);
         return new AirportWritable(name, ID);
     }
 }
