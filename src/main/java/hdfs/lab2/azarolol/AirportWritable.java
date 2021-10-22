@@ -1,6 +1,7 @@
 package hdfs.lab2.azarolol;
 
 import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.yarn.webapp.hamlet.Hamlet;
 
 import java.util.Objects;
 
@@ -25,7 +26,7 @@ public class AirportWritable {
         String[] fields = input.split(",");
         String airportID = fields[0];
         if (Objects.equals(airportID, "\"DEST_AIRPORT_ID\"")) {
-            return null;
+            return new AirportWritable("", new IntWritable(0));
         }
         IntWritable ID = new IntWritable(Integer.parseInt(fields[0]));
         String name = fields[1];

@@ -28,7 +28,7 @@ public class FlightWritable {
             delayTime = new FloatWritable(Float.parseFloat(fields[18]));
             destinationAirportID = new IntWritable(Integer.parseInt(fields[14]));
         } catch (NumberFormatException n) {
-            return null;
+            return new FlightWritable(new IntWritable(0), new FloatWritable(0));
         }
         return new FlightWritable(destinationAirportID, delayTime);
     }
