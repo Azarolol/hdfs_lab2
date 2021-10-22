@@ -22,13 +22,14 @@ public class FlightWritable {
 
     public static FlightWritable read(String input) {
         FloatWritable delayTime;
+        IntWritable destinationAirportID;
         String[] fields = input.split(",");
         try {
             delayTime = new FloatWritable(Float.parseFloat(fields[18]));
+            destinationAirportID = new IntWritable(Integer.parseInt(fields[14]));
         } catch (NumberFormatException n) {
-            delayTime = new FloatWritable(0);
+            return null;
         }
-        IntWritable destinationAirportID = new IntWritable(Integer.parseInt(fields[14]));
         return new FlightWritable(destinationAirportID, delayTime);
     }
 }

@@ -2,6 +2,8 @@ package hdfs.lab2.azarolol;
 
 import org.apache.hadoop.io.IntWritable;
 
+import java.util.Objects;
+
 public class AirportWritable {
     private final String name;
     private final IntWritable ID;
@@ -22,7 +24,9 @@ public class AirportWritable {
     public static AirportWritable read(String input) {
         String[] fields = input.split(",");
         String airportID = fields[0];
-        if airportID == ""
+        if (Objects.equals(airportID, "\"DEST_AIRPORT_ID\"")) {
+            return null;
+        }
         IntWritable ID = new IntWritable(Integer.parseInt(fields[0]));
         String name = fields[1];
         return new AirportWritable(name, ID);
