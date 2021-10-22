@@ -10,6 +10,6 @@ public class AirportWritable {
     }
 
     public read(String input) {
-        String[] 
+        String[] fields = input.split("")
     }
 }
