@@ -19,6 +19,10 @@ public class AirportWritableComparable implements WritableComparable<AirportWrit
         return indicator;
     }
 
+    public AirportWritableComparable() {
+        
+    }
+
     public AirportWritableComparable(IntWritable ID, IntWritable indicator) {
         this.ID = ID;
         this.indicator = indicator;
