@@ -9,7 +9,7 @@ public class AirportWritable {
         this.name = name;
     }
 
-    public read(String input) {
+    public AirportWritable read(String input) {
         String[] fields = input.split(",");
         int ID = Integer.parseInt(fields[0]);
         String name = fields([1]);

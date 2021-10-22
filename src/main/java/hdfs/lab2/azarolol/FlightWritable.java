@@ -7,5 +7,7 @@ public class FlightWritable {
         this.destinationAirportID = destinationAirportID;
     }
 
-    public static FlightWritable 
+    public static FlightWritable read(String input) {
+        String[] fields = 
+    }
 }
