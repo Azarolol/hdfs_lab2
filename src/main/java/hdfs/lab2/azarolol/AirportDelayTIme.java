@@ -22,7 +22,7 @@ public class AirportDelayTime {
 
         FileOutputFormat.setOutputPath(job, new Path(args[2]));
         job.setPartitionerClass(AirportPartitioner.class);
-        job.setGroupingComparatorClass(TextPair.FirstComparator.class);
+        job.setGroupingComparatorClass(AirportGroupingComparator.class);
         job.setReducerClass(JoinReducer.class);
         job.setMapOutputKeyClass(TextPair.class);
 
